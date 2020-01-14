@@ -23,16 +23,20 @@ public class NoteDAOImpl implements NoteDAO {
     @Override
     public void save(Note note) {
         jdbcTemplate.update(
-                "INSERT INTO notes (note_text) VALUES (?)",
-                note.getText()
+                "INSERT INTO notes (text, date, time) VALUES (?, ?, ?)",
+                note.getText(),
+                note.getDate(),
+                note.getTime()
         );
     }
 
     @Override
     public void update(Note note) {
         jdbcTemplate.update(
-                "UPDATE notes SET text = ? WHERE id = ?",
+                "UPDATE notes SET text = ?, date = ?, time = ? WHERE id = ?",
                 note.getText(),
+                note.getDate(),
+                note.getTime(),
                 note.getId()
         );
     }
@@ -50,7 +54,12 @@ public class NoteDAOImpl implements NoteDAO {
         return jdbcTemplate.query(
                 "SELECT * FROM notes WHERE id=" + noteId,
                 resultSet -> {
-                    return new Note(resultSet.getInt("id"), resultSet.getString("note_text"));
+                    return new Note(
+                            resultSet.getInt("id"),
+                            resultSet.getString("text"),
+                            resultSet.getDate("date"),
+                            resultSet.getTime("time")
+                    );
                 }
         );
     }
@@ -61,7 +70,10 @@ public class NoteDAOImpl implements NoteDAO {
                 "SELECT * FROM notes",
                 (resultSet, i) -> new Note(
                         resultSet.getInt("id"),
-                        resultSet.getString("note_text"))
+                        resultSet.getString("text"),
+                        resultSet.getDate("date"),
+                        resultSet.getTime("time")
+                )
         );
     }
 }
