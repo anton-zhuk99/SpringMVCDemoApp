@@ -26,7 +26,7 @@
         <c:forEach var="note" items="${noteList}" varStatus="status">
             <tr>
                 <td>
-                    <h5>${status.index + 1}</h5>
+                    <h5>Note #${status.index + 1} from ${note.date} ${note.time}</h5>
                     <p>
                         ${note.text}
                     </p>
