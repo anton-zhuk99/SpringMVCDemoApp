@@ -11,6 +11,8 @@ import ua.antonzhuk.springmvcdemoapp.dao.NoteDAO;
 import ua.antonzhuk.springmvcdemoapp.model.Note;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 @Controller
@@ -36,6 +38,8 @@ public class HomeController {
 
     @RequestMapping(value = "/saveNote", method = RequestMethod.POST)
     public ModelAndView saveNote(@ModelAttribute Note note) {
+        note.setDate(new Date(new java.util.Date().getTime()));
+        note.setTime(new Time(new java.util.Date().getTime()));
         noteDAO.save(note);
         return new ModelAndView("redirect:/");
     }
