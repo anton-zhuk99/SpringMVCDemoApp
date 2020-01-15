@@ -31,6 +31,9 @@
                         ${note.text}
                     </p>
                 </td>
+                <td>
+                    <a href="/editNote?id=${note.id}">Edit</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

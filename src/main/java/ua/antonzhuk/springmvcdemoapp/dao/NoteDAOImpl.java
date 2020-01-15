@@ -54,12 +54,17 @@ public class NoteDAOImpl implements NoteDAO {
         return jdbcTemplate.query(
                 "SELECT * FROM notes WHERE id=" + noteId,
                 resultSet -> {
-                    return new Note(
-                            resultSet.getInt("id"),
-                            resultSet.getString("text"),
-                            resultSet.getDate("date"),
-                            resultSet.getTime("time")
-                    );
+                    if (resultSet.next()) {
+                        return new Note(
+                                resultSet.getInt("id"),
+                                resultSet.getString("text"),
+                                resultSet.getDate("date"),
+                                resultSet.getTime("time")
+                        );
+                    }
+                    else {
+                        return null;
+                    }
                 }
         );
     }

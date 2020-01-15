@@ -19,9 +19,7 @@ public class NoteDAOTests {
         dataSource.setPassword("olenenok1009");
 
         NoteDAO noteDAO = new NoteDAOImpl(dataSource);
-        noteDAO.save(new Note("Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                "Vivamus scelerisque erat nec arcu volutpat pharetra. " +
-                "Etiam non ullamcorper turpis, vitae porttitor est. In et varius tellus. Maecenas ut diam eu."));
+        System.out.println(noteDAO.get(1));
 
     }
 

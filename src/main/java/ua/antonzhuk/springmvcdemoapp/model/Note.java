@@ -57,4 +57,14 @@ public class Note {
     public void setTime(Time time) {
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "Note{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                '}';
+    }
 }
