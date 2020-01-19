@@ -32,7 +32,10 @@
                     </p>
                 </td>
                 <td>
-                    <a href="/editNote?id=${note.id}">Edit</a>
+                    <a href="${pageContext.request.contextPath}/editNote?id=${note.id}">Edit</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/deleteNote?id=${note.id}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

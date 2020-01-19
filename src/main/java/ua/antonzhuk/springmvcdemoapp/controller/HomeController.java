@@ -65,4 +65,11 @@ public class HomeController {
         return new ModelAndView("redirect:/");
     }
 
+    @RequestMapping(value = "/deleteNote", method = RequestMethod.GET)
+    public ModelAndView deleteContact(HttpServletRequest request) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        noteDAO.delete(id);
+        return new ModelAndView("redirect:/");
+    }
+
 }
