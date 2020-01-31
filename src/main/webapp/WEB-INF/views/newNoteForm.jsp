@@ -5,24 +5,56 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>New note</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>New note</title>
+    <style type="text/css">
+        body {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Calibri, serif;
+        }
+
+        .globalWrapper {
+            background-color: darkgrey;
+            margin: auto;
+            width: auto;
+            padding: 15px;
+            display: inline-block;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        .formWrapper {
+            display: grid;
+            grid-template-columns: auto;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .submitButton {
+            margin: auto;
+            width: 25%;
+        }
+    </style>
 </head>
 <body>
-    <div align="center">
-        <h1>New note</h1>
-        <form:form action="saveNote" method="post" modelAttribute="note">
-        <table>
-            <form:hidden path="id"/>
-            <tr>
-                <td>Type your note here: </td>
-                <td><form:textarea path="text" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="submit" value="Save"></td>
-            </tr>
-        </table>
-        </form:form>
+<div class="globalWrapper">
+    <div class="headerWrapper">
+        <h1 class="header">New note</h1>
     </div>
+    <form:form action="saveNote" method="post" modelAttribute="note">
+        <div class="formWrapper">
+            <div class="textareaWrapper">
+                <form:hidden path="id"/>
+                <form:textarea rows="5" cols="30" path="text" />
+            </div>
+            <div class="submitButtonWrapper">
+                <input class="submitButton" type="submit" value="Save">
+            </div>
+        </div>
+    </form:form>
+</div>
 </body>
 </html>
