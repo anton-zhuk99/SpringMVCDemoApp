@@ -7,7 +7,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import ua.antonzhuk.springmvcdemoapp.dao.NoteDAO;
 import ua.antonzhuk.springmvcdemoapp.dao.NoteDAOImpl;
